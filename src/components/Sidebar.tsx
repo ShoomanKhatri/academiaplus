@@ -4,7 +4,9 @@ import Link from 'next/link';
 const Sidebar = () => {
   return (
     <div className="bg-gray-800 text-white w-64 h-full flex flex-col p-6">
-      <h2 className="text-2xl font-semibold mb-8">AcademiaPlus</h2>
+      <h2 className="text-2xl font-semibold mb-8"> 
+        <Link href="/" className="text-lg text-gray-300 hover:text-white">AcademiaPlus</Link>
+        </h2>
       <nav className="flex-1">
         <ul>
           <li className="mb-4">
