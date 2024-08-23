@@ -1,10 +1,8 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
-import { usePathname } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,20 +11,12 @@ export const metadata: Metadata = {
   description: "Academic Management System",
 };
 
-const pageTitles: { [key: string]: string } = {
-  "/dashboard": "Dashboard",
-  "/attendance": "Attendance",
-  "/marks": "Marks",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface RootLayoutProps {
   children: React.ReactNode;
-}>) {
-  const pathname = usePathname();
-  const title = pageTitles[pathname] || "Academia Plus";
+  title?: string;
+}
 
+export default function RootLayout({ children, title = "Academia Plus" }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={`flex h-screen bg-gray-100 ${inter.className}`}>
